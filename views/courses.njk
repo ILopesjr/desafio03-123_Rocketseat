@@ -2,49 +2,20 @@
 
 {% block content %}
     <section class="contents">
-
-        <div class="content" id="starter">
-
-            <div class="content__image-container">
-                <img src="/Starter.svg" alt="Curso Starter">
+        {% for item in items %}
+            <div class="content" id="{{ item.course }}">
+                <div class="content__image-container">
+                    <img src="{{ item.image }}" alt="Curso {{ item.course }}">
+                </div>
+                <div class="title__content">
+                    <p>{{ item.title }}</p>
+                </div>
+                <div class="modules__info">
+                    <p>{{ item.modules }}</p>
+                    <p class="content__price">{{item.price}}</p>
+                </div>
             </div>
-            <div class="title__content">
-                <p>Curso Starter</p>
-            </div>
-            <div class="modules__info">
-                <p>5 Modulos</p>
-                <p class="content__price">Free</p>
-            </div>
-        </div>
-
-         <div class="content" id="launchbase">
-
-            <div class="content__image-container">
-                <img src="/Launchbase.svg" alt="Curso Launchbase">
-            </div>
-            <div class="title__content">
-                <p>Curso Launchbase</p>
-            </div>
-            <div class="modules__info">
-                <p>7 Modulos</p>
-                <p class="content__price">Pago</p>
-            </div>
-        </div>
-
-        <div class="content" id="gostack">
-
-            <div class="content__image-container">
-                <img src="/GoStack.svg" alt="Curso GoStack">
-            </div>
-            <div class="title__content">
-                <p>Curso GoStack</p>
-            </div>
-            <div class="modules__info">
-                <p>10 Modulos</p>
-                <p class="content__price">Pago</p>
-            </div>
-        </div>
-
+        {% endfor %}
     </section>
     
     <div class="modal-overlay">

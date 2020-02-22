@@ -2,7 +2,7 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 
 const server = express();
-//const videos = require("./data")
+const datas = require("./data");
 
 server.use(express.static('public'));
 server.use(express.static('img'));
@@ -27,19 +27,15 @@ server.get('/courses', function(req, res){
     return res.render('courses');
 });
 
-server.get('/video', function(req, res){
-    const id = req.query.id;
-
-    const video = videos.find(function(video){
-        return video.id == id;
-    });
-
-    if (!video){
-        return res.send("Video not found!");
-    }
-
-    return res.render("video", { item: video });
+server.get('/courses', function(req, res){
+    return res.render("courses", { items: datas });
 });
+
+// server.get('/courses/:id', function(req, res){
+//     const id = req.params.id;
+//     const course = datas;
+//     return res.render("courses", { item: course[id] });
+// });
 
 server.use(function(req, res) { res.status(404).render("not-found"); });
 
