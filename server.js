@@ -24,18 +24,14 @@ server.get('/about', function(req, res){
 });
 
 server.get('/courses', function(req, res){
-    return res.render('courses');
-});
-
-server.get('/courses', function(req, res){
     return res.render("courses", { items: datas });
 });
 
-// server.get('/courses/:id', function(req, res){
-//     const id = req.params.id;
-//     const course = datas;
-//     return res.render("courses", { item: course[id] });
-// });
+server.get('/courses/:id', function(req, res){
+    const id = req.params.id;
+    const course = datas;
+    return res.render("courses", { item: course[id] });
+});
 
 server.use(function(req, res) { res.status(404).render("not-found"); });
 

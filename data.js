@@ -1,7 +1,7 @@
 module.exports = [
     {
       image: '/Starter.svg',
-      course: 'start',
+      course: 'starter',
       title: 'Curso Starter',
       modules: '5 Modulos',
       price: 'Free',
